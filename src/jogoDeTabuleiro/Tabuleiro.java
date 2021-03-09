@@ -28,14 +28,14 @@ public class Tabuleiro {
 	// metodos da classe
 	public Peca peca(int linha, int coluna) {
 		if (!posicaoExiste(linha, coluna)) {
-			throw new ExcecaoTabuleiro("Posição nao existe no tabuleiro");
+			throw new ExcecaoTabuleiro("Posicao nao existe no tabuleiro");
 		}
 		return pecas[linha][coluna];
 	}
 
 	public Peca peca(Posicao posicao) {
 		if (!posicaoExiste(posicao)) {
-			throw new ExcecaoTabuleiro("Posição nao existe no tabuleiro");
+			throw new ExcecaoTabuleiro("Posicao nao existe no tabuleiro");
 		}
 		return pecas[posicao.getLinha()][posicao.getColuna()];
 	}
