@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import xadrez.Cor;
 import xadrez.PartidaXadrez;
-import xadrez.PecaDeXadrez;
+import xadrez.PecaXadrez;
 import xadrez.PosicaoXadrez;
 
 public class UI {
@@ -54,16 +54,20 @@ public class UI {
 		}
 	}
 	
-	public static void imprimirPartida(PartidaXadrez partidaXadrez, List<PecaDeXadrez> capturadas) {
+	public static void imprimirPartida(PartidaXadrez partidaXadrez, List<PecaXadrez> capturadas) {
 		imprimirTabuleiro(partidaXadrez.obterPecas());
 		System.out.println("");
 		imprimirPecasCapituradas(capturadas);
 		System.out.println("");
 		System.out.println("Turno: " + partidaXadrez.getTurno());
 		System.out.println("Esperando Jogador: " + partidaXadrez.getJogadorAtual());
+		if(partidaXadrez.getCheck()) {
+			System.out.println("CHECK!");
+		}
+		
 	}
 	
-	public static void imprimirTabuleiro(PecaDeXadrez[][] pecas) {
+	public static void imprimirTabuleiro(PecaXadrez[][] pecas) {
 
 		for (int i = 0; i < pecas.length; i++) {
 			System.out.print((8 - i) + " ");
@@ -76,7 +80,7 @@ public class UI {
 
 	}
 
-	private static void imprimirPeca(PecaDeXadrez peca, boolean backgroud) {
+	private static void imprimirPeca(PecaXadrez peca, boolean backgroud) {
 		if(backgroud) {
 			System.out.print(ANSI_BLUE_BACKGROUND);
 		}
@@ -92,7 +96,7 @@ public class UI {
 		System.out.print(" ");
 	}
 
-	public static void imprimirTabuleiro(PecaDeXadrez[][] pecas, boolean[][] possiveisMovimentos) {
+	public static void imprimirTabuleiro(PecaXadrez[][] pecas, boolean[][] possiveisMovimentos) {
 
 		for (int i = 0; i < pecas.length; i++) {
 			System.out.print((8 - i) + " ");
@@ -105,9 +109,9 @@ public class UI {
 
 	}
 	
-	private static void imprimirPecasCapituradas(List<PecaDeXadrez> capituradas) {
-		List<PecaDeXadrez> branco = capituradas.stream().filter(x -> x.getCor() == Cor.BRANCO).collect(Collectors.toList());
-		List<PecaDeXadrez> preto = capituradas.stream().filter(x -> x.getCor() == Cor.PRETO).collect(Collectors.toList());
+	private static void imprimirPecasCapituradas(List<PecaXadrez> capituradas) {
+		List<PecaXadrez> branco = capituradas.stream().filter(x -> x.getCor() == Cor.BRANCO).collect(Collectors.toList());
+		List<PecaXadrez> preto = capituradas.stream().filter(x -> x.getCor() == Cor.PRETO).collect(Collectors.toList());
 		System.out.println("");
 		System.out.println("Pecas Capturadas: ");
 		System.out.print("Branca:");

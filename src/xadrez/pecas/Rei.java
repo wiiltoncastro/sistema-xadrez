@@ -3,9 +3,9 @@ package xadrez.pecas;
 import jogoDeTabuleiro.Posicao;
 import jogoDeTabuleiro.Tabuleiro;
 import xadrez.Cor;
-import xadrez.PecaDeXadrez;
+import xadrez.PecaXadrez;
 
-public class Rei extends PecaDeXadrez {
+public class Rei extends PecaXadrez {
 
 	public Rei(Tabuleiro tabuleiro, Cor cor) {
 		super(tabuleiro, cor);
@@ -17,7 +17,7 @@ public class Rei extends PecaDeXadrez {
 	}
 
 	private boolean podeMover(Posicao posicao) {
-		PecaDeXadrez p = (PecaDeXadrez)getTabuleiro().peca(posicao);
+		PecaXadrez p = (PecaXadrez)getTabuleiro().peca(posicao);
 		return p == null || p.getCor() != getCor(); 
 	}
 	

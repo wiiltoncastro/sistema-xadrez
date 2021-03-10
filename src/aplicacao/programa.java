@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import xadrez.ExcecaoXadrez;
 import xadrez.PartidaXadrez;
-import xadrez.PecaDeXadrez;
+import xadrez.PecaXadrez;
 import xadrez.PosicaoXadrez;
 
 public class programa {
@@ -16,7 +16,7 @@ public class programa {
 
 		Scanner sc = new Scanner(System.in);
 		PartidaXadrez p1 = new PartidaXadrez();
-		List<PecaDeXadrez> capturadas = new ArrayList<>();
+		List<PecaXadrez> capturadas = new ArrayList<>();
 
 		while (true) {
 			try {
@@ -36,7 +36,7 @@ public class programa {
 				System.out.print("Posicao Destino: ");
 				PosicaoXadrez destino = UI.lerPosicaoXadrez(sc);
 				
-				PecaDeXadrez pecaCapturada = p1.executarMovimentosDeXadrez(origem, destino);
+				PecaXadrez pecaCapturada = p1.executarMovimentosDeXadrez(origem, destino);
 				
 				if(pecaCapturada != null) {
 					capturadas.add(pecaCapturada);
