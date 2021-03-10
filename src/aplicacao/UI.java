@@ -104,13 +104,13 @@ public class UI {
 	public static void imprimirTabuleiro(PecaXadrez[][] pecas, boolean[][] possiveisMovimentos) {
 
 		for (int i = 0; i < pecas.length; i++) {
-			System.out.print((8 - i) + " ");
+			System.out.print(ANSI_RED + (8 - i) + " " + ANSI_RESET);
 			for (int j = 0; j < pecas.length; j++) {
 				imprimirPeca(pecas[i][j], possiveisMovimentos[i][j]);
 			}
 			System.out.println("");
 		}
-		System.out.print("  A B C D E F G H");
+		System.out.print(ANSI_RED + "  A B C D E F G H" + ANSI_RESET);
 
 	}
 	
