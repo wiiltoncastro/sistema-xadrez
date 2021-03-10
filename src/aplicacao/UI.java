@@ -60,11 +60,16 @@ public class UI {
 		imprimirPecasCapituradas(capturadas);
 		System.out.println("");
 		System.out.println("Turno: " + partidaXadrez.getTurno());
-		System.out.println("Esperando Jogador: " + partidaXadrez.getJogadorAtual());
-		if(partidaXadrez.getCheck()) {
-			System.out.println("CHECK!");
+		if(!partidaXadrez.getCheckMate()) {
+				System.out.println("Esperando Jogador: " + partidaXadrez.getJogadorAtual());
+				if(partidaXadrez.getCheck()) {
+				System.out.println("CHECK!");
+			}
+		}	
+		else {
+			System.out.println("CHECKMATE!");
+			System.out.println("Vencedor: " + partidaXadrez.getJogadorAtual());
 		}
-		
 	}
 	
 	public static void imprimirTabuleiro(PecaXadrez[][] pecas) {
